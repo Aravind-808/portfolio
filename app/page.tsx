@@ -5,7 +5,7 @@ export default function HomePage() {
   
   return (
     <main className="pt-16 p-6 sm:p-4 max-w-7xl mx-auto min-h-screen">
-      <img src = '/grey_arrow.png' className='relative mt-6 sm:mt-8 md:mt-12 lg:mt-16 w-[20vh] rotate-120'></img>
+      <img src = '/grey_arrow.png' className='relative mt-6 sm:mt-8 md:mt-12 lg:mt-16 w-[20vh] rotate-90'></img>
       <div className="flex flex-col items-center justify-center h-[50vh] space-y-6">
         <h1 className="text-4xl md:text-7xl font-medium text-center">ARAVIND&apos;S PORTFOLIO</h1>
         <p className="text-center text-lg opacity-70">I like to make cool stuff involving AI sometimes.</p>
