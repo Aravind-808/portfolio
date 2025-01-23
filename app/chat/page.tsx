@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Send, User, Bot } from 'lucide-react'
 import Groq from 'groq-sdk' 
 
-const groq = new Groq({ apiKey: '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', dangerouslyAllowBrowser: true})
+const groq = new Groq({ apiKey: 'api', dangerouslyAllowBrowser: true})
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([])
