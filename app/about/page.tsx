@@ -55,7 +55,7 @@ export default function AboutPage() {
           {'>'} This is a dedicated section showcasing Pringles, my 1 year old tabby cat :)
           </p>
           </div>
-          <img src="/pringles_des.png" className="flex justify-center mt-2 mb-2" alt = "Pringles Collage"></img>
+          <img src="/pring_collage.png" className="flex justify-center mt-2 mb-2" alt = "Pringles Collage"></img>
       </div>
     </main>
   );
