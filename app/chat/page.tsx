@@ -1,10 +1,12 @@
 'use client'
+import dotenv from 'dotenv';
+dotenv.config();
 
 import { useState, useEffect, useRef } from 'react'
 import { Send, User, Bot } from 'lucide-react'
 import Groq from 'groq-sdk' 
 
-const groq = new Groq({ apiKey: 'api', dangerouslyAllowBrowser: true})
+const groq = new Groq({ apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY, dangerouslyAllowBrowser: true})
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([])
