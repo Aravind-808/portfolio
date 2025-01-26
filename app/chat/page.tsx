@@ -103,7 +103,7 @@ export default function Chat() {
             <div
               className={`p-3 rounded-lg text-sm break-words ${message.role === 'user' ? 'bg-blue-100 text-blue-800' : 'bg-gray-200 text-gray-800'} max-w-[75%]`}
             >
-              {/* Render markdown content for assistant messages */}
+              {/*markdown'd*/}
               {message.role === 'assistant' ? (
                 <ReactMarkdown>{message.content}</ReactMarkdown>
               ) : (
