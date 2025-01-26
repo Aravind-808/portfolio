@@ -14,6 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+            property="og:image"
+            content="https://avdportfolio.vercel.app/site-image.jpg"
+          />
+      </head>
       <body className={spaceGrotesk.className}>
         <Navigation />
         {children}
