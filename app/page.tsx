@@ -1,6 +1,20 @@
 import Link from 'next/link'
 import { Github, Instagram, Music, FileText, Linkedin, Mail } from 'lucide-react'
 
+export const metadata = {
+  title: "My Portfolio",
+  description: "Hey y'all! I am Aravind and this is my portfolio. Feel free to check it out!!",
+  openGraph: {
+    title: "My portfolio B)",
+    description: "Take a look at my portfolio!!",
+    image: "/public/site-image.jpg",
+    icons: {
+      icon: "favicon.ico",
+    },
+    url: "https://avdportfolio.vercel.app",
+  },
+};
+
 export default function HomePage() {
   
   return (
