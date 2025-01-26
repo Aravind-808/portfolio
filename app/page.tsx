@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "My portfolio B)",
     description: "Take a look at my portfolio!!",
-    image: "/public/site-image.jpg",
+    image: "https://avdportfolio.vercel.app/site-image.jpg",
     icons: {
       icon: "favicon.ico",
     },
