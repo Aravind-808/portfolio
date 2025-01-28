@@ -5,11 +5,12 @@ import { useState, useEffect, useRef } from 'react';
 import { Send, User, Bot } from 'lucide-react';
 import dotenv from 'dotenv';
 import ReactMarkdown from 'react-markdown';
+import Together from 'together-ai'
 
 dotenv.config();
 
 const groq = new Groq({ apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY, dangerouslyAllowBrowser: true });
-
+const together = new Together({apiKey: process.env.NEXT_PUBLIC_TOGETHER_API_KEY });
 interface CompletionResponse {
   choices: {
     message: {
@@ -45,7 +46,7 @@ export default function Chat() {
     setLoading(true);
 
     try {
-      const completion = await groq.chat.completions.create({
+      const response = await together.chat.completions.create({
         messages: [
           {
             "role": "system",
@@ -56,7 +57,10 @@ export default function Chat() {
               - **Text Classification (AI or not)** with neural network (FC layer) made from scratch using only numpy.\n\n
               - **K-means Clustering** on computer datacenter dataset ( made this as a trainee at Corent Technology chennai).\n\n
               - **A Conversational Bot (GPT-2)** that can answer questions about me (made with huggingface lib and 500 question dataset to learn about fine tuning).\n\n
-              Proficient in Py, Java, HTML, CSS, Typescript. Enjoys pop-rock and rap (top 5 : Kendrick, Ye, Drake, MF Doom, Travis), games (Fallout, GTA, RDR, Hitman). His cat, Pringles, is an orange male tabby about a year old. Favorite food: biryani, chocolates and chips mediocre cook. Career goal: explore and research AI further and make meaningful projects. When asked about projects, explain very shortly and ask them to check git (link in homepage). Avoid using bullet points for answers.
+              Proficient in Py, Java, HTML, CSS, Typescript. Enjoys pop-rock and rap (top 5 : Kendrick, Ye, Drake, MF Doom, Travis), games (Fallout, GTA, RDR, Hitman). His cat, Pringles, is an orange male tabby about a year old. Favorite food: biryani, chocolates and chips mediocre cook. Career goal: explore and research AI further and make meaningful projects. When asked about projects, explain very shortly and ask them to check git (link in homepage).
+              Apart from his interest in tech, you are also a public speaker. You have hosted many events and was also the emcee for Celanza'24, a cultural event that happened in your college.
+              You are the co chair of Yuva Young Indians, a student club in your college.
+              You are also in the content team of Tech Society, a club in your college, where you generate content for their social media pages. Avoid using bullet points for answers.
               `
           },
           {
@@ -64,13 +68,14 @@ export default function Chat() {
             "content": input,
           }
         ],
-        model: 'llama-3.1-8b-instant',
-        temperature: 0.4
+        model: 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo',
+        temperature: 0.4,
+        max_tokens: 256
       });
 
       const assistantMessage = {
         role: 'assistant' as const,
-        content: completion.choices[0].message.content || 'Sorry, I couldn’t understand that.',
+        content: response.choices[0]?.message?.content || 'Sorry, I couldn’t understand that.',
       };
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
