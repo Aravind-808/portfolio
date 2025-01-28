@@ -68,7 +68,7 @@ export default function Chat() {
             "content": input,
           }
         ],
-        model: 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo',
+        model: 'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo-128K',
         temperature: 0.4,
         max_tokens: 256
       });
