@@ -19,10 +19,9 @@ export default function HomePage() {
   
   return (
     <main className="pt-16 p-6 sm:p-4 max-w-7xl mx-auto min-h-screen">
-      <img src = '/grey_arrow.png' className='relative mt-6 sm:mt-8 md:mt-12 lg:mt-16 w-[20vh] rotate-[-205deg]'></img>
-      <div className="flex flex-col items-center justify-center h-[50vh] space-y-6">
-        <h1 className="text-4xl md:text-7xl font-medium text-center">ARAVIND&apos;S PORTFOLIO</h1>
-        <p className="text-center text-lg opacity-70">I like to make cool stuff involving AI sometimes.</p>
+      <div className="flex flex-col items-center justify-center h-[90vh] space-y-5">
+        <h1 className="text-4xl md:text-7xl font-medium text-center">HEY THERE👋, I'M ARAVIND. </h1>
+        <p className="text-center text-lg opacity-80">I love AI and I try to make cool stuff with it.</p>
         <div className="flex space-x-4">
           <Link href="https://github.com/aravind-808" target="_blank" rel="noopener noreferrer">
             <Github className="w-6 h-6" />
@@ -40,6 +39,7 @@ export default function HomePage() {
             <FileText className="w-6 h-6" />
           </Link>
         </div>
+        <div className='absolute bottom-10 text-2xl opacity-100 text-center '>❤️✨</div>
       </div>
     </main>
   )

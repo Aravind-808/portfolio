@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { Menu, X } from 'lucide-react'
+import { Menu, X } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 
 export function Navigation() {
@@ -10,46 +10,54 @@ export function Navigation() {
   const pathname = usePathname()
 
   const routes = [
-    { href: '/', label: 'HOME' },
-    { href: '/about', label: 'ME' },
-    { href: '/chat', label: 'CHAT' },
-    { href: '/me', label: 'PROJECTS' },
+    { href: "/", label: "HOME" },
+    { href: "/about", label: "ABOUT ME" },
+    { href: "/chat", label: "CHAT WITH  \"AI\"  ME" },
+    { href: "/me", label: "MY PROJECTS" },
   ]
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 640) {
+        setIsOpen(false)
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white z-50">
       <nav className="flex items-center p-4 max-w-7xl mx-auto">
-        {/*menu*/}
-        <button 
-          className="p-2 z-50 relative"
+        {/* Menu button */}
+        <button
+          className="z-50 relative left-0 sm:hidden w-6 h-6 flex items-center justify-center"
           onClick={() => setIsOpen(!isOpen)}
-          style={{ marginRight: '4px' }}
         >
-          {isOpen ? (
-            <X className="w-6 h-6" />
-          ) : (
-            <Menu className="w-6 h-6" />
-          )}
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           <span className="sr-only">Menu</span>
         </button>
 
-        {/*nav links*/}
-        <div 
-          className={`flex items-center space-x-0 transition-opacity duration-300 ease-in-out ${
-            isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
-          style={{
-            marginLeft: isOpen ? '0.5px' : '0px',
-          }}
+        {/* Navigation links */}
+        <div
+          className={`
+            absolute top-full left-0 right-0 bg-white sm:relative sm:top-auto text-xl sm:left-auto sm:right-auto
+            sm:flex sm:items-center sm:space-x-8 sm:ml-4
+            transition-all duration-300 ease-in-out
+            ${isOpen ? "block" : "hidden sm:flex"}
+          `}
         >
           {routes.map((route) => (
             <Link
               key={route.href}
               href={route.href}
               onClick={() => setIsOpen(false)}
-              className={`py-2 px-2 font-medium hover:opacity-70 transition-opacity duration-300 ease-in-out ${
-                pathname === route.href ? 'opacity-100' : 'opacity-50'
-              }`}
+              className={`
+                block py-2 px-4 font-medium hover:opacity-70 transition-opacity duration-300 ease-in-out
+                ${pathname === route.href ? "opacity-100" : "opacity-50"}
+                sm:inline-block sm:py-0 sm:px-2
+              `}
             >
               {route.label}
             </Link>
@@ -59,4 +67,3 @@ export function Navigation() {
     </header>
   )
 }
-
