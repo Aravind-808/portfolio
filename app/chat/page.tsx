@@ -92,7 +92,7 @@ export default function Chat() {
 
   return (
     <main className="pt-6 p-4 max-w-4xl mx-auto min-h-screen flex flex-col items-center">
-      <h1 className="text-4xl font-medium mt-12 mb-6 text-center">CHAT</h1>
+      <h1 className="text-4xl font-medium mt-12 mb-6 text-center">CHAT 💬</h1>
 
       <div className="flex-grow w-full max-w-2xl overflow-auto bg-gray-50 rounded-t-lg p-4 shadow-md mb-20">
         {messages.map((message, index) => (

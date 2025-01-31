@@ -10,10 +10,10 @@ export function Navigation() {
   const pathname = usePathname()
 
   const routes = [
-    { href: "/", label: "HOME" },
-    { href: "/about", label: "ABOUT ME" },
-    { href: "/chat", label: "CHAT WITH  \"AI\"  ME" },
-    { href: "/me", label: "MY PROJECTS" },
+    { href: "/", label: "HOME 🏠" },
+    { href: "/about", label: "ABOUT ME 🙋🏻" },
+    { href: "/chat", label: "CHAT WITH  \"AI\"  ME 💬" },
+    { href: "/projects", label: "MY PROJECTS 💻" },
   ]
 
   useEffect(() => {
@@ -54,8 +54,8 @@ export function Navigation() {
               href={route.href}
               onClick={() => setIsOpen(false)}
               className={`
-                block py-2 px-4 font-medium hover:opacity-70 transition-opacity duration-300 ease-in-out
-                ${pathname === route.href ? "opacity-100" : "opacity-50"}
+                block py-2 px-4 font-medium hover:opacity-90 transition-opacity duration-300 ease-in-out
+                ${pathname === route.href ? "opacity-100" : "opacity-90"}
                 sm:inline-block sm:py-0 sm:px-2
               `}
             >
