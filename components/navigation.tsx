@@ -14,6 +14,7 @@ export function Navigation() {
     { href: "/about", label: "ABOUT ME 🙋🏻" },
     { href: "/chat", label: "CHAT WITH  \"AI\"  ME 💬" },
     { href: "/projects", label: "MY PROJECTS 💻" },
+    { href: "/photogallery", label: "PHOTO GALLERY 📸" }
   ]
 
   useEffect(() => {
@@ -43,7 +44,7 @@ export function Navigation() {
         <div
           className={`
             absolute top-full left-0 right-0 bg-white sm:relative sm:top-auto text-xl sm:left-auto sm:right-auto
-            sm:flex sm:items-center sm:space-x-8 sm:ml-4
+            sm:flex sm:items-center sm:space-x-4 sm:ml-4
             transition-all duration-300 ease-in-out
             ${isOpen ? "block" : "hidden sm:flex"}
           `}
@@ -54,8 +55,8 @@ export function Navigation() {
               href={route.href}
               onClick={() => setIsOpen(false)}
               className={`
-                block py-2 px-4 font-medium hover:opacity-90 transition-opacity duration-300 ease-in-out
-                ${pathname === route.href ? "opacity-100" : "opacity-90"}
+                block py-2 px-4 font-medium hover:underline hover:opacity-90 transition-opacity duration-300 ease-in-out
+                ${pathname === route.href ? "opacity-100" : "opacity-90"}  
                 sm:inline-block sm:py-0 sm:px-2
               `}
             >
